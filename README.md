@@ -1,0 +1,17 @@
+Tasks needed to complete
+- [x] have a HOME page 
+- [x] menu section 
+- [x] 4 links to other pages
+- [ ] online store
+- [ ] unordered list where you use icons/images
+- [ ] home page should contain ”aside”
+- [ ] aside should have 3 list items such as links
+- [x] background color in the menu should change 
+- [ ] contain an event calendar
+- [x] pressing login button it will write ”Welcome, (username)”
+- [ ] list at least 2 items to sell
+- [x] you will calculate the tax which will be %8 of the item price
+- [ ] when user presses ”Add Cart” button, you should send form information to payment.html file
+- [ ] Create your own error message so that when user leaves input empty and presses Submit Payment button, you see your own error
+- [ ] Submit Payment should direct to another verified.html page
+- [ ] one of the links in your menu will take to another .html page where you will have some images in it.

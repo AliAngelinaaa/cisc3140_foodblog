@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="welcome-message"></div>
+    
+    <div id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" id="login-btn">Login</button>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="popular.html">Popular</a></li>
+            <li><a href="store.html">Store</a></li>
+        </ul>
+    </nav>
+    <form id="item-form" action="payment.html" method="get">
+        <label for="item1">
+            <input type="checkbox" id="item1" name="item" value="10" class="item-checkbox">
+            Tiramisu - $10
+        </label>
+
+        <label for="item2">
+            <input type="checkbox" id="item2" name="item" value="20" class="item-checkbox">
+            Item 2 - $20
+        </label>
+
+        <div id="total-container">
+            <p>Price: <span id="price">$0</span></p>
+            <p>Tax: <span id="tax">$0</span></p>
+            <p>Total Amount: <span id="total">$0</span></p>
+        </div>
+
+        <button type="submit" id="add-cart-btn">Add to Cart</button>
+    </form>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
