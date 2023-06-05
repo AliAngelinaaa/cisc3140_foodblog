@@ -1,54 +1,49 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #FFFEFA;
-    margin: 0;
-    padding: 0;
-}
-
 nav {
     background-color: #FFD1EA;
     padding: 10px;
     display: flex;
     justify-content: flex-end;
     font-family: "Lato", sans-serif;
-}
-
-nav ul {
+  }
+  
+  nav ul,
+  aside ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-}
-
-nav ul li {
+  }
+  
+  nav ul li{
     display: inline;
     margin-left: 10px;
-}
-
-nav ul li a {
+  }
+  
+  nav ul li a,
+  aside ul li a {
     text-decoration: none;
     padding: 10px;
     color: #333;
-}
-
-nav ul li a:hover {
+  }
+  
+  nav ul li a:hover{
     background-color: #FF87AD;
-}
-
-#login-form {
+  }
+  
+  #login-form {
     display: block;
-}
-
-#welcome-message {
+  }
+  
+  #welcome-message {
     display: none;
-}
-
-
-#total-container {
+  }
+  
+  #total-container {
     margin-top: 20px;
     border-top: 1px solid #ccc;
     padding-top: 10px;
-}
-button[type="submit"] {
+  }
+  
+  button[type="submit"] {
     background-color: #ff92b3;
     color: #000;
     border: none;
@@ -56,9 +51,184 @@ button[type="submit"] {
     font-size: 16px;
     border-radius: 3px;
     cursor: pointer;
-}
-
-button[type="submit"]:hover {
+  }
+  
+  button[type="submit"]:hover {
     background-color: #ffe5ed;
+  }
+  
+  img#logo {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    /* Center the logo horizontally */
+  }
+  
+  header,
+  footer {
+    background-color: #FFD1EA;
+    padding: 10px;
+  }
+  
+  main {
+    margin-left: 240px;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .blog-post {
+    margin-bottom: 30px;
+  }
+  
+  .blog-post h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .blog-post p {
+    margin-bottom: 10px;
+  }
+  
+  .blog-post a {
+    display: inline-block;
+    background-color: #ff92b3;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 3px;
+    margin-top: 10px;
+  }
+  
+  .blog-post a:hover {
+    background-color: #ffe5ed;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer p {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  footer a {
+    color: #FF87AD;
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #F9F9F9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .blog-post img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .blog-post {
+    width: calc(50% - 75px); /* Adjust the width as needed */
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .blog-post {
+      width: 100%; /* Change the width to 100% on smaller screens */
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .blog-post {
+      width: calc(50% - 15px); /* Adjust the width as needed for medium screens */
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .blog-post {
+      width: calc(50% - 10px); /* Adjust the width as needed for larger screens */
+    }
+  }
+  
+  aside {
+    width: 200px;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  aside h3 {
+    margin-top: 0;
+  }
+  
+  aside ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  aside li {
+    margin-bottom: 10px;
+  }
+  
+  aside a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  aside a:hover {
+    color: #FF87AD;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
 }
 
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+main#payment{
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
