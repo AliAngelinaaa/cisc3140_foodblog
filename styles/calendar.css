@@ -1,0 +1,28 @@
+/* Styles for the event calendar */
+#eventCalendar {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  #eventCalendar table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #eventCalendar th,
+  #eventCalendar td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  
+  #eventCalendar th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  #eventCalendar td.current-day {
+    background-color: #ffcc00;
+  }
+  
+  

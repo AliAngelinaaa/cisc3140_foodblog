@@ -5,48 +5,55 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Payment</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/article.css">
+    <link rel="stylesheet" href="styles/form.css">
+    
 </head>
 
 <body>
     <img src="images/logo.png" id="logo" />
-  <header>
-    <nav>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-        <li><a href="popular.html">Popular</a></li>
-        <li><a href="photos.html">Photos</a></li>
-        <li><a href="store.html">Store</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="popular.html">Popular</a></li>
+                <li><a href="photos.html">Photos</a></li>
+                <li><a href="store.html">Store</a></li>
+            </ul>
+        </nav>
+    </header>
     <main id="payment">
         <h1>Payment Details</h1>
 
         <div id="item-details">
             <h2>Item(s) Selected:</h2>
-            <p id="selected-items"></p>
+            <div id="selected-items"></div>
+            <h2>Price: $</h2><p id="selected-items-price"></p>
         </div>
 
         <form id="payment-form" action="#" method="post">
+            <!-- Payment form fields -->
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
-
+        
             <label for="credit-card">Credit Card Number:</label>
             <input type="text" id="credit-card" name="credit-card" required>
-
+        
             <label for="expiration-date">Expiration Date:</label>
             <input type="text" id="expiration-date" name="expiration-date" required>
-
+        
             <label for="cvc">CVC:</label>
             <input type="text" id="cvc" name="cvc" required>
-
+        
+            <!-- Submit button -->
             <button type="submit" id="submit-payment-btn">Submit Payment</button>
         </form>
+        
     </main>
 
-    <script src="script.js"></script>
+    <script src="scripts/shop.js"></script>
 </body>
 
 </html>
