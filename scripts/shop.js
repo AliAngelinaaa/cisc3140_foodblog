@@ -1,6 +1,7 @@
+// Log in Javascript
 var loginBtn = document.getElementById("login-btn");
 if (loginBtn) {
-  loginBtn.addEventListener("click", function(event) {
+  loginBtn.addEventListener("click", function (event) {
     event.preventDefault(); // Prevent form submission for demonstration purposes
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
@@ -17,6 +18,42 @@ if (loginBtn) {
   });
 }
 
+// Get the item grid element
+const itemGrid = document.getElementById("item-grid");
+
+// Generate HTML elements for each product
+products.forEach(product => {
+  const itemCard = document.createElement("div");
+  itemCard.className = "item-card";
+
+  const image = document.createElement("img");
+  image.src = product.image;
+  image.alt = product.name;
+
+  const label = document.createElement("label");
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.name = "item";
+  checkbox.value = product.price;
+  checkbox.className = "item-checkbox";
+  const name = document.createElement("h3");
+  name.textContent = product.name;
+  const price = document.createElement("p");
+  price.textContent = `$${product.price}`;
+
+  label.appendChild(checkbox);
+  label.appendChild(name);
+  label.appendChild(price);
+
+  itemCard.appendChild(image);
+  itemCard.appendChild(label);
+
+  itemGrid.appendChild(itemCard);
+
+  // Add event listener to the checkbox
+  checkbox.addEventListener("change", updateTotal);
+});
+
 // Retrieve the item cards
 var itemCards = document.getElementsByClassName("item-card");
 
@@ -24,12 +61,6 @@ var itemCards = document.getElementsByClassName("item-card");
 var totalPrice = 0;
 var tax = 0;
 var totalAmount = 0;
-
-// Iterate over the item cards and add event listeners to the checkboxes
-for (var i = 0; i < itemCards.length; i++) {
-  var checkbox = itemCards[i].querySelector(".item-checkbox");
-  checkbox.addEventListener("change", updateTotal);
-}
 
 // Function to update the total price, tax, and total amount
 function updateTotal() {
@@ -48,7 +79,7 @@ function updateTotal() {
   }
 
   // Calculate the tax and total amount
-  tax = totalPrice * 0.1; // Assuming 10% tax rate
+  tax = totalPrice * 0.08; // Assuming 8% tax rate
   totalAmount = totalPrice + tax;
 
   // Update the HTML elements with the calculated values
@@ -59,58 +90,34 @@ function updateTotal() {
   priceElement.textContent = "$" + totalPrice.toFixed(2);
   taxElement.textContent = "$" + tax.toFixed(2);
   totalElement.textContent = "$" + totalAmount.toFixed(2);
-}
 
-// Add event listener to the Add to Cart button
-var addToCartBtn = document.getElementById("add-cart-btn");
-addToCartBtn.addEventListener("click", function(event) {
-  event.preventDefault(); // Prevent form submission for demonstration purposes
+  // Store the total amount in localStorage
+  localStorage.setItem("totalAmount", totalAmount.toFixed(2));
 
-  // Retrieve the selected items
-  var selectedItems = [];
-
+  // Store the selected items in localStorage
+  var selectedItems = "";
   for (var i = 0; i < itemCards.length; i++) {
     var checkbox = itemCards[i].querySelector(".item-checkbox");
     if (checkbox.checked) {
       var itemName = itemCards[i].querySelector("h3").textContent;
-      selectedItems.push(itemName);
+      selectedItems += itemName + ", ";
     }
   }
+  localStorage.setItem("selectedItems", selectedItems);
 
-  // Store the selected items in localStorage
-  localStorage.setItem("selectedItems", JSON.stringify(selectedItems));
+  // Display the selected items in the payment.html page
+  var selectedItemsElement = document.getElementById("selected-items");
+  if (selectedItemsElement) {
+    selectedItemsElement.textContent = selectedItems;
+  }
+}
+
+// Add event listener to the Add to Cart button
+var addToCartBtn = document.getElementById("add-cart-btn");
+addToCartBtn.addEventListener("click", function (event) {
+  // Prevent the default form submission
+  event.preventDefault();
 
   // Redirect to the payment.html page
   window.location.href = "payment.html";
 });
-
-// Retrieve the selected items from localStorage
-var selectedItems = localStorage.getItem("selectedItems");
-
-// Display the selected items in the payment.html page
-var selectedItemsElement = document.getElementById("selected-items");
-if (selectedItemsElement) {
-  selectedItemsElement.textContent = selectedItems;
-}
-
-var paymentForm = document.getElementById("payment-form");
-if (paymentForm) {
-  paymentForm.addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form submission for demonstration purposes
-
-    // Retrieve the payment details from the form
-    var name = document.getElementById("name").value;
-    var creditCard = document.getElementById("credit-card").value;
-    var expirationDate = document.getElementById("expiration-date").value;
-    var cvc = document.getElementById("cvc").value;
-
-    // Store the payment details in localStorage
-    localStorage.setItem("name", name);
-    localStorage.setItem("creditCard", creditCard);
-    localStorage.setItem("expirationDate", expirationDate);
-    localStorage.setItem("cvc", cvc);
-
-    // Redirect to the verification.html page
-    window.location.href = "verification.html";
-  });
-}

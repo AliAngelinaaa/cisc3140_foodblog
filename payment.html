@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/article.css">
     <link rel="stylesheet" href="styles/form.css">
-    
+    <script src = "scripts/payment.js"></script>
 </head>
 
 <body>
@@ -33,27 +33,50 @@
             <h2>Price: $</h2><p id="selected-items-price"></p>
         </div>
 
-        <form id="payment-form" action="#" method="post">
-            <!-- Payment form fields -->
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-        
-            <label for="credit-card">Credit Card Number:</label>
-            <input type="text" id="credit-card" name="credit-card" required>
-        
-            <label for="expiration-date">Expiration Date:</label>
-            <input type="text" id="expiration-date" name="expiration-date" required>
-        
-            <label for="cvc">CVC:</label>
-            <input type="text" id="cvc" name="cvc" required>
-        
-            <!-- Submit button -->
-            <button type="submit" id="submit-payment-btn">Submit Payment</button>
-        </form>
+        <form id="credit" name="credit" method="post" action="verification.html">         
+            <fieldset id="creditcard">
+   
+               <label for="name">Card Holder*</label>
+               <input name="name" id="name" required type="text" />              
+   
+               <fieldset id="cards">
+                  <label class="cardLabel">Credit Company*</label>
+                  <label class="cardLabel">
+                     <input name="company" value="amex" type="radio" required />
+                     <img src="images/cards/amex.png" alt="American Express" />
+                  </label>
+                  <label class="cardLabel">               
+                     <input name="company" value="discover" type="radio" />
+                     <img src="images/cards/discover.png" alt="Discover" />
+                  </label>
+                  <label class="cardLabel">                  
+                     <input name="company" value="master" type="radio"  />
+                     <img src="images/cards/master.png" alt="MasterCard" />
+                  </label>
+                  <label class="cardLabel">                  
+                     <input name="company" value="visa" type="radio"  />
+                     <img src="images/cards/visa.png" alt="Visa" />
+                  </label>
+               </fieldset>          
+   
+               <label for="credit-card">Credit Card Number*</label>
+               <input name="credit-card" id="credit-card" required type="text"
+                      pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$"/>
+   
+               <label for="expiration-date">Expiration Date*</label>
+               <input name="expiration-date" id="expiration-date" required type="text" placeholder="mm/yyyy" />
+   
+               <label for="cvc">CVC*</label>
+               <input name="cvc" id="cvc" required pattern="^\d{3,4}$" type="text"/>
+            </fieldset>
+   
+            <input type="submit" id="subButton" value="Submit Payment" />         
+         </form>
         
     </main>
-
-    <script src="scripts/shop.js"></script>
+    <footer>
+        <p>&copy; 2023 Sweet Indulgences. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
 </body>
 
 </html>

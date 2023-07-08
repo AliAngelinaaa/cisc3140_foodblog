@@ -1,101 +1,109 @@
-// Get the current date
-const currentDate = new Date();
+// calendar.js
+function createCalendar(calendarId, eventDates, eventDescriptions, eventPrices) {
+  var today = new Date();
+  var currentMonth = today.getMonth();
+  var currentYear = today.getFullYear();
+  var calendar = document.getElementById(calendarId);
 
-// Get the year and month of the current date
-const currentYear = currentDate.getFullYear();
-const currentMonth = currentDate.getMonth();
+  // Generate calendar header
+  var header = document.createElement("div");
+  header.classList.add("calendar-header");
+  header.textContent = `${currentYear} ${getMonthName(currentMonth)}`;
+  calendar.appendChild(header);
 
-// Function to generate the event calendar
-function generateEventCalendar(year, month) {
-  // Get the target element where the calendar will be displayed
-  const calendarContainer = document.getElementById('eventCalendar');
+  // Generate calendar table
+  var table = document.createElement("table");
+  table.classList.add("calendar-table");
 
-  // Create a new table element
-  const calendarTable = document.createElement('table');
+  // Generate table header (weekdays)
+  var thead = document.createElement("thead");
+  var weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var headerRow = document.createElement("tr");
+  weekdays.forEach(function(weekday) {
+     var th = document.createElement("th");
+     th.textContent = weekday;
+     headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
 
-  // Generate the calendar header
-  const calendarHeader = generateCalendarHeader(year, month);
+  // Generate table body (calendar days)
+  var tbody = document.createElement("tbody");
+  var currentDate = new Date(currentYear, currentMonth, 1);
+  var startDate = getStartDate(currentDate);
+  var endDate = getEndDate(currentDate);
+  var currentRow;
 
-  // Generate the calendar body
-  const calendarBody = generateCalendarBody(year, month);
+  while (startDate <= endDate) {
+     if (startDate.getDay() === 0) {
+        currentRow = document.createElement("tr");
+        tbody.appendChild(currentRow);
+     }
 
-  // Append the header and body to the table
-  calendarTable.appendChild(calendarHeader);
-  calendarTable.appendChild(calendarBody);
+     var td = document.createElement("td");
+     td.textContent = startDate.getDate();
 
-  // Append the table to the calendar container
-  calendarContainer.appendChild(calendarTable);
-}
+     if (startDate.getMonth() === currentMonth) {
+        // Apply styles for days in the current month
+        td.classList.add("current-month-day");
 
-// Function to generate the calendar header
-function generateCalendarHeader(year, month) {
-  // Create a table header element
-  const calendarHeader = document.createElement('thead');
+        // Check if there is an event on the current day
+        var eventIndex = eventDates.findIndex(function(date) {
+           return isSameDay(startDate, new Date(date));
+        });
 
-  // Create a table row element
-  const headerRow = document.createElement('tr');
-
-  // Create table header cells for the days of the week
-  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  for (let day of daysOfWeek) {
-    const headerCell = document.createElement('th');
-    headerCell.textContent = day;
-    headerRow.appendChild(headerCell);
-  }
-
-  // Append the header row to the header element
-  calendarHeader.appendChild(headerRow);
-
-  return calendarHeader;
-}
-
-// Function to generate the calendar body
-function generateCalendarBody(year, month) {
-  // Create a table body element
-  const calendarBody = document.createElement('tbody');
-
-  // Get the number of days in the month
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-  // Get the day of the week for the first day of the month
-  const firstDay = new Date(year, month, 1).getDay();
-
-  // Create variables to keep track of the day and table cells
-  let dayCount = 1;
-  let cellCount = 0;
-
-  // Create table rows and cells for the calendar
-  while (dayCount <= daysInMonth) {
-    // Create a new table row element
-    const row = document.createElement('tr');
-
-    // Create table cells for each day of the week
-    for (let i = 0; i < 7; i++) {
-      const cell = document.createElement('td');
-
-      // Check if the cell should contain a day or be empty
-      if (cellCount >= firstDay && dayCount <= daysInMonth) {
-        cell.textContent = dayCount;
-
-        // Check if the current day is the current date
-        if (year === currentDate.getFullYear() && month === currentDate.getMonth() && dayCount === currentDate.getDate()) {
-          cell.classList.add('current-day');
+        if (eventIndex !== -1) {
+           // Create event details for the day
+           var eventDiv = document.createElement("div");
+           eventDiv.classList.add("event");
+           eventDiv.innerHTML = `
+              <div class="event-date">${eventDates[eventIndex]}</div>
+              <div class="event-description">${eventDescriptions[eventIndex]}</div>
+              <div class="event-price">${eventPrices[eventIndex]}</div>
+           `;
+           td.appendChild(eventDiv);
         }
+     } else {
+        // Apply styles for days outside the current month
+        td.classList.add("other-month-day");
+     }
 
-        dayCount++;
-      }
-
-      // Append the cell to the row
-      row.appendChild(cell);
-      cellCount++;
-    }
-
-    // Append the row to the table body
-    calendarBody.appendChild(row);
+     currentRow.appendChild(td);
+     startDate.setDate(startDate.getDate() + 1);
   }
 
-  return calendarBody;
+  tbody.appendChild(currentRow);
+  table.appendChild(tbody);
+  calendar.appendChild(table);
 }
 
-// Generate the event calendar for the current month and year
-generateEventCalendar(currentYear, currentMonth);
+function getMonthName(month) {
+  var monthNames = [
+     "January", "February", "March", "April", "May", "June",
+     "July", "August", "September", "October", "November", "December"
+  ];
+  return monthNames[month];
+}
+
+function getStartDate(date) {
+  var startDate = new Date(date);
+  startDate.setDate(1);
+  startDate.setDate(1 - startDate.getDay());
+  return startDate;
+}
+
+function getEndDate(date) {
+  var endDate = new Date(date);
+  endDate.setMonth(endDate.getMonth() + 1);
+  endDate.setDate(0);
+  endDate.setDate(endDate.getDate() + 6 - endDate.getDay());
+  return endDate;
+}
+
+function isSameDay(date1, date2) {
+  return (
+     date1.getFullYear() === date2.getFullYear() &&
+     date1.getMonth() === date2.getMonth() &&
+     date1.getDate() === date2.getDate()
+  );
+}
