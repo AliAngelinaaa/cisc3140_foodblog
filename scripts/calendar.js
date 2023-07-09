@@ -1,109 +1,128 @@
-// calendar.js
-function createCalendar(calendarId, eventDates, eventDescriptions, eventPrices) {
-  var today = new Date();
-  var currentMonth = today.getMonth();
-  var currentYear = today.getFullYear();
-  var calendar = document.getElementById(calendarId);
+"use strict";
 
-  // Generate calendar header
-  var header = document.createElement("div");
-  header.classList.add("calendar-header");
-  header.textContent = `${currentYear} ${getMonthName(currentMonth)}`;
-  calendar.appendChild(header);
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 10
+   Tutorial Case
 
-  // Generate calendar table
-  var table = document.createElement("table");
-  table.classList.add("calendar-table");
+   Author: 
+   Date:  
 
-  // Generate table header (weekdays)
-  var thead = document.createElement("thead");
-  var weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  var headerRow = document.createElement("tr");
-  weekdays.forEach(function(weekday) {
-     var th = document.createElement("th");
-     th.textContent = weekday;
-     headerRow.appendChild(th);
-  });
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
+   Filename:   lht_calendar.js  
 
-  // Generate table body (calendar days)
-  var tbody = document.createElement("tbody");
-  var currentDate = new Date(currentYear, currentMonth, 1);
-  var startDate = getStartDate(currentDate);
-  var endDate = getEndDate(currentDate);
-  var currentRow;
+   Function List:
+   createCalendar(calDate)
+      Creates the calendar table for the month specified in the
+      calDate parameter. The current date is highlighted in 
+      the table.
 
-  while (startDate <= endDate) {
-     if (startDate.getDay() === 0) {
-        currentRow = document.createElement("tr");
-        tbody.appendChild(currentRow);
-     }
+   calCaption(calDate)
+      Writes the caption of the calendar table
 
-     var td = document.createElement("td");
-     td.textContent = startDate.getDate();
+   calWeekdayRow()
+      Writes the weekday title rows in the calendar table
 
-     if (startDate.getMonth() === currentMonth) {
-        // Apply styles for days in the current month
-        td.classList.add("current-month-day");
+   daysInMonth(calDate)
+      Returns the number of days in the month from calDate
 
-        // Check if there is an event on the current day
-        var eventIndex = eventDates.findIndex(function(date) {
-           return isSameDay(startDate, new Date(date));
-        });
+   calDays(calDate)
+      Writes the daily rows in the calendar table, highlighting calDate
+	
+*/
 
-        if (eventIndex !== -1) {
-           // Create event details for the day
-           var eventDiv = document.createElement("div");
-           eventDiv.classList.add("event");
-           eventDiv.innerHTML = `
-              <div class="event-date">${eventDates[eventIndex]}</div>
-              <div class="event-description">${eventDescriptions[eventIndex]}</div>
-              <div class="event-price">${eventPrices[eventIndex]}</div>
-           `;
-           td.appendChild(eventDiv);
-        }
-     } else {
-        // Apply styles for days outside the current month
-        td.classList.add("other-month-day");
-     }
+var thisDay = new Date();
 
-     currentRow.appendChild(td);
-     startDate.setDate(startDate.getDate() + 1);
-  }
+document.getElementById("calendar").innerHTML = createCalendar(thisDay);
 
-  tbody.appendChild(currentRow);
-  table.appendChild(tbody);
-  calendar.appendChild(table);
+
+function createCalendar(calDate) {
+
+   var calendarHTML = "<table id=calendar_table>";
+
+   calendarHTML += calCaption(calDate);
+   calendarHTML += calWeekdayRow();
+   calendarHTML += calDays(calDate);
+   calendarHTML += "</table>";
+
+   return calendarHTML;
 }
 
-function getMonthName(month) {
-  var monthNames = [
-     "January", "February", "March", "April", "May", "June",
-     "July", "August", "September", "October", "November", "December"
-  ];
-  return monthNames[month];
+function calCaption(calDate) {
+   var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+   var thisMonth = calDate.getMonth();
+   var thisYear = calDate.getFullYear();
+
+   return "<caption>" + monthName[thisMonth] + " " + thisYear + "</caption>";
+
 }
 
-function getStartDate(date) {
-  var startDate = new Date(date);
-  startDate.setDate(1);
-  startDate.setDate(1 - startDate.getDay());
-  return startDate;
+function calWeekdayRow() {
+   var dayName = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+   var rowHTML = "<tr>";
+
+   for (var i = 0; i < dayName.length; i++) {
+      rowHTML += "<th classname='calendar_weekdays'>" + dayName[i] + "</th>"
+   }
+
+   rowHTML += "</tr>";
+
+   return rowHTML;
+
 }
 
-function getEndDate(date) {
-  var endDate = new Date(date);
-  endDate.setMonth(endDate.getMonth() + 1);
-  endDate.setDate(0);
-  endDate.setDate(endDate.getDate() + 6 - endDate.getDay());
-  return endDate;
+
+function daysInMonth(calDate) {
+   var dayCount = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+   var thisYear = calDate.getFullYear();
+   var thisMonth = calDate.getMonth();
+
+   if (thisYear % 4 === 0) {
+      if ((thisYear % 100 != 0) || (thisYear % 400 === 0))
+         dayCount[1] = 29;
+   }
+
+   return dayCount[thisMonth];
+
 }
 
-function isSameDay(date1, date2) {
-  return (
-     date1.getFullYear() === date2.getFullYear() &&
-     date1.getMonth() === date2.getMonth() &&
-     date1.getDate() === date2.getDate()
-  );
+function calDays(calDate) {
+
+   var day = new Date(calDate.getFullYear(), calDate.getMonth(), 1);
+   var weekDay = day.getDay();
+
+   var htmlCode = "<tr>";
+
+   for (var i = 0; i < weekDay; i++) {
+      htmlCode += "<td></td>";
+   }
+
+
+   var totalDays = daysInMonth(calDate);
+
+   var highlight = calDate.getDate();
+
+   for (var i = 1; i <= totalDays; i++) {
+      day.setDate(i);
+      weekDay = day.getDay();
+
+      if (weekDay === 0) htmlCode += "<tr>";
+
+
+      if (i === highlight) {
+         htmlCode += "<td class='calendar_dates' id='calendar_today'>" + i + dayEvent[i] + "</td>";
+      } else {
+
+         htmlCode += "<td class='calendar_dates'>" + i + dayEvent[i] + "</td>";
+      }
+
+      if (weekDay === 6) htmlCode += "</tr>";
+
+   }
+
+   htmlCode += "</tr>";
+
+   return htmlCode;
 }

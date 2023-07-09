@@ -41,3 +41,11 @@ aside {
     padding: 0;
   }
   
+  aside > h3{
+    color: #FF87AD;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #FF87AD;
+  }
