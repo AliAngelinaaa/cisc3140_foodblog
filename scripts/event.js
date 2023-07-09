@@ -1,15 +1,37 @@
-"use strict";
+var dayEvent = [];
+dayEvent[1] = "";
+dayEvent[2] = "<br /><a href='#'>Chocolate Lovers Meetup</a><br />6 pm";
+dayEvent[3] = "<br /><a href='#'>Cupcake Decorating Workshop</a><br />2 pm";
+dayEvent[4] = "<br /><a href='#'>Gourmet Dessert Tasting</a><br />7 pm";
+dayEvent[5] = "<br /><a href='#'>Sweet Brunch Buffet</a><br />10 am";
+dayEvent[6] = "<br /><a href='#'>Live Cooking Demonstration: French Pastries</a><br />3 pm";
+dayEvent[7] = "";
+dayEvent[8] = "<br /><a href='#'>Baking Basics Workshop</a><br />4 pm";
+dayEvent[9] = "<br /><a href='#'>Ice Cream Social</a><br />6 pm";
+dayEvent[10] = "<br /><a href='#'>Dessert Pairing: Wine and Chocolate</a><br />7:30 pm";
+dayEvent[11] = "<br /><a href='#'>Cake Decorating Competition</a><br />2 pm";
+dayEvent[12] = "<br /><a href='#'>Macaron Masterclass</a><br />11 am";
+dayEvent[13] = "";
+dayEvent[14] = "<br /><a href='#'>Dessert Photography Workshop</a><br />5 pm";
+dayEvent[15] = "<br /><a href='#'>Dessert Pop-Up Shop</a><br />12 pm - 6 pm";
+dayEvent[16] = "<br /><a href='#'>ChocoFest: A Celebration of Chocolate</a><br />7 pm";
+dayEvent[17] = "<br /><a href='#'>Pie Baking Contest</a><br />3 pm";
+dayEvent[18] = "<br /><a href='#'>Donut Day: DIY Donut Bar</a><br />10 am";
+dayEvent[19] = "<br /><a href='#'>Sweet Brunch Buffet</a><br />11 am";
+dayEvent[20] = "<br /><a href='#'>Cake Pop Workshop</a><br />2 pm";
+dayEvent[21] = "";
+dayEvent[22] = "<br /><a href='#'>Dessert Food Truck Festival</a><br />5 pm - 9 pm";
+dayEvent[23] = "<br /><a href='#'>Chocolate Tasting Experience</a><br />6 pm";
+dayEvent[24] = "<br /><a href='#'>Cupcake Bake Sale for Charity</a><br />10 am - 2 pm";
+dayEvent[25] = "<br /><a href='#'>Dessert Cooking Class: French Pastries</a><br />4 pm";
+dayEvent[26] = "<br /><a href='#'>Sweet Brunch Buffet</a><br />11 am";
+dayEvent[27] = "";
+dayEvent[28] = "<br /><a href='#'>Dessert Pop-Up Market</a><br />12 pm - 6 pm";
+dayEvent[29] = "<br /><a href='#'>Ice Cream Sundae Bar</a><br />3 pm";
+dayEvent[30] = "";
+dayEvent[31] = "<br /><a href='#'>Dessert Party: All-You-Can-Eat Sweets</a><br />7:30 pm";
 
-      // Event data
-      var eventDates = ["July 29, 2018 11:00:00", "July 30, 2018 19:00:00", "July 31, 2018 19:30:00",
-                        // Rest of the event dates...
-                        "September 13, 2018 20:00:00"];
-      var eventDescriptions = ["Classics Brunch", "Lasers and Light", "Dixieland Jazz Masters",
-                               // Rest of the event descriptions...
-                               "Antonio Perez"];
-      var eventPrices = ["$12", "$12/$18/$24", "$22/$31/$47",
-                         // Rest of the event prices...
-                         "$32/$48/$64"];
-
-      // Create calendar view
-      createCalendar("calendar", eventDates, eventDescriptions, eventPrices);
+// Celebrity Events and Road Trip
+dayEvent[32] = "<br /><a href='#'>Celebrity Dessert Cook-Off</a><br />6 pm";
+dayEvent[33] = "<br /><a href='#'>Meet and Greet with Dessert Influencers</a><br />3 pm";
+dayEvent[34] = "<br /><a href='#'>Dessert Road Trip: Explore Local Bakeries</a><br />Full Day";
