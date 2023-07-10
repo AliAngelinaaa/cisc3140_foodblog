@@ -1,111 +1,114 @@
 nav {
-    background-color: #FFD1EA;
-    padding: 10px;
-    display: flex;
-    justify-content: flex-end;
-    font-family: "Lato", sans-serif;
-  }
-  
-  nav ul,
-  aside ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-left: 10px;
-  }
-  
-  nav ul li a,
-  aside ul li a {
-    text-decoration: none;
-    padding: 10px;
-    color: #333;
-  }
-  
-  nav ul li a:hover {
-    background-color: #FF87AD;
-  }
-  
-  #login-form {
-    display: block;
-  }
-  
-  #welcome-message {
-    display: none;
-  }
-  
-  #total-container {
-    margin-top: 20px;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-  }
-  
-  button[type="submit"] {
-    background-color: #ff92b3;
-    color: #000;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #ffe5ed;
-  }
-  
-  img#logo {
-    width: 50%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  header,
-  footer {
-    background-color: #FFD1EA;
-    padding: 10px;
-  }
-  
-  main {
-    margin-left: 240px;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  footer p {
-    font-size: 14px;
-    margin: 0;
-  }
-  
-  footer a {
-    color: #FF87AD;
-    text-decoration: none;
-  }
-  
-  body {
-    font-family: 'Nunito', sans-serif;
-    background-color: #F9F9F9;
-    margin: 0;
-    padding: 0;
-  }
-  
+  background-color: #FFD1EA;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  font-family: "Lato", sans-serif;
+}
+
+nav ul,
+aside ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-left: 10px;
+}
+
+nav ul li a,
+aside ul li a {
+  text-decoration: none;
+  padding: 10px;
+  color: #333;
+}
+
+nav ul li a:hover {
+  background-color: #FF87AD;
+}
+
+#login-form {
+  display: block;
+}
+
+#welcome-message {
+  display: none;
+}
+
+#total-container {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+button[type="submit"] {
+  background-color: #ff92b3;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #ffe5ed;
+}
+
+img#logo {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+header,
+footer {
+  background-color: #FFD1EA;
+  padding: 10px;
+}
+
+main {
+  margin-left: 240px;
+  padding: 20px;
+}
+
+article>h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 14px;
+  margin: 0;
+}
+
+footer a {
+  color: #FF87AD;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #F9F9F9;
+  margin: 0;
+  padding: 0;
+}
