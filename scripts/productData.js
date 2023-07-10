@@ -15,18 +15,18 @@ const products = [
         price: 17
     },
       {
-        name: "Japanese Cheesecake",
-        image: "images/jp_cheese.jpg",
+        name: "Strawberry Shortcake Tiramisu",
+        image: "images/Strawberry_Shortcake_Tiramisu.jpg",
         price: 20
     },
       {
-        name: "Japanese Cheesecake",
-        image: "images/jp_cheese.jpg",
-        price: 20
+        name: "Tres Leches Cake",
+        image: "images/tres_leches_cake.jpg",
+        price: 25
     },
       {
-        name: "Japanese Cheesecake",
-        image: "images/jp_cheese.jpg",
+        name: "Flan",
+        image: "images/flan.jpg",
         price: 20
     }
 ];
