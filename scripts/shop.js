@@ -84,37 +84,3 @@ document.getElementById("storeForm").addEventListener("submit", function(event) 
   event.preventDefault();
   window.location.href = "payment.html";
 });
-
-
-// function calculateTotal() {
-//   var selectedItems = [];
-//   var totalAmount = 0;
-  
-//   var checkboxes = document.getElementsByName("item");
-//   for (var i = 0; i < checkboxes.length; i++) {
-//       if (checkboxes[i].checked) {
-//           selectedItems.push(checkboxes[i].value);
-//           if (checkboxes[i].value === "item1") {
-//               totalAmount += 10;
-//           } else if (checkboxes[i].value === "item2") {
-//               totalAmount += 15;
-//           }
-//       }
-//   }
-  
-//   var tax = totalAmount * 0.08;
-//   var totalPrice = totalAmount + tax;
-  
-//   document.getElementById("selectedItems").innerText = "Selected Item(s):" + selectedItems.join(", ");
-//   document.getElementById("taxNum").innerText = "Tax: $" + tax.toFixed(2);
-//   document.getElementById("totalAmount").innerText = "Total Amount: $" + totalPrice.toFixed(2);
-  
-//   // Store the order details in sessionStorage
-//   sessionStorage.setItem("selectedItems", selectedItems.join(", "));
-//   sessionStorage.setItem("totalAmount", totalPrice.toFixed(2));
-// }
-
-// document.getElementById("storeForm").addEventListener("submit", function(event) {
-//   event.preventDefault();
-//   window.location.href = "payment.html";
-// });
