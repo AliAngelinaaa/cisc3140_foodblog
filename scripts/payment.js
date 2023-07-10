@@ -4,6 +4,11 @@ window.addEventListener("load", function () {
 
   document.getElementById("selectedItems").innerText = selectedItems;
   document.getElementById("totalAmount").innerText = totalAmount;
+
+  document.getElementById("credit").addEventListener("submit", function(event) {
+    event.preventDefault();
+    window.location.href = "verification.html";
+  });
 });
 
 window.addEventListener("load", function () {
