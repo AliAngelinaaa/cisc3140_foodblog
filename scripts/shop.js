@@ -77,6 +77,7 @@ function calculateTotal() {
   
   // Store the order details in sessionStorage
   sessionStorage.setItem("selectedItems", selectedItems.join(", "));
+  sessionStorage.setItem("taxNum", tax.toFixed(2));
   sessionStorage.setItem("totalAmount", totalPrice.toFixed(2));
 }
 

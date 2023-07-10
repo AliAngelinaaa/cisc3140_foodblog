@@ -1,8 +1,10 @@
 window.addEventListener("load", function () {
   var selectedItems = sessionStorage.getItem("selectedItems");
+  var taxNum = sessionStorage.getItem("taxNum");
   var totalAmount = sessionStorage.getItem("totalAmount");
 
   document.getElementById("selectedItems").innerText = selectedItems;
+  document.getElementById("taxNumber").innerText = taxNum;
   document.getElementById("totalAmount").innerText = totalAmount;
 
   document.getElementById("credit").addEventListener("submit", function(event) {
