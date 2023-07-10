@@ -18,11 +18,49 @@ if (loginBtn) {
   });
 }
 
+
+window.addEventListener("DOMContentLoaded", function () {
+  const itemGrid = document.querySelector(".item-grid");
+
+  products.forEach(function (product) {
+    const itemCard = document.createElement("div");
+    itemCard.className = "item-card";
+
+    const image = document.createElement("img");
+    image.src = product.image;
+    image.alt = product.name;
+    image.className = "item-image";
+
+    const label = document.createElement("label");
+    const name = document.createElement("h3");
+    name.textContent = product.name;
+    const price = document.createElement("p");
+    price.textContent = "$" + product.price;
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.name = product.name;
+    checkbox.value = product.price;
+    checkbox.className = "item";
+    checkbox.addEventListener("change", calculateTotal);
+
+    label.appendChild(name);
+    label.appendChild(price);
+    label.appendChild(checkbox);
+
+    itemCard.appendChild(image);
+    itemCard.appendChild(label);
+
+    itemGrid.appendChild(itemCard);
+  });
+});
+
+
 function calculateTotal() {
   var selectedItems = [];
   var totalAmount = 0;
   
-  var checkboxes = document.getElementsByName("item");
+  var checkboxes = document.getElementsByClassName("item");
   for (var i = 0; i < checkboxes.length; i++) {
       if (checkboxes[i].checked) {
           selectedItems.push(checkboxes[i].name);

@@ -4,13 +4,6 @@ window.addEventListener("load", function () {
 
   document.getElementById("selectedItems").innerText = selectedItems;
   document.getElementById("totalAmount").innerText = totalAmount;
-
-  document.getElementById("paymentForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-    // Perform payment processing logic here
-    alert("Payment successful!");
-    window.location.href = "verification.html";
-  });
 });
 
 window.addEventListener("load", function () {

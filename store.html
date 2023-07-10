@@ -28,7 +28,7 @@
       width: 150px;
       height: 150px;
       object-fit: cover;
-      border-radius: 50%;
+      border-radius: 5%;
       margin-bottom: 10px;
     }
 
@@ -64,6 +64,9 @@
       content: "";
       flex: auto;
     }
+    p{
+      padding-left: 10px;
+    }
   </style>
 </head>
 
@@ -93,35 +96,6 @@
   </header>
   <form id="storeForm">
     <div class="item-grid">
-      <div class="item-card">
-        <img src="images/bingsu.jpg" alt="Bingsu">
-        <label>
-          <h3>Bingsu</h3>
-          $10
-          <br>
-          <input type="checkbox" name="item" value="10" onchange="calculateTotal()" />
-        </label>
-      </div>
-
-      <div class="item-card">
-        <img src="images/item2.jpg" alt="Item 2">
-        <label>
-          <h3>Item 2</h3>
-          $15
-          <br>
-          <input type="checkbox" name="item" value="15" onchange="calculateTotal()" />
-        </label>
-      </div>
-
-      <div class="item-card">
-        <img src="images/item3.jpg" alt="Item 3">
-        <label>
-          <h3>Item 3</h3>
-          $12
-          <br>
-          <input type="checkbox" name="item" value="12" onchange="calculateTotal()" />
-        </label>
-      </div>
     </div>
 
     <p id="selectedItems">Selected Item(s):</p>
