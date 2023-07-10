@@ -3,7 +3,7 @@ var thumbnails = document.getElementsByClassName("thumbnail");
 var currentIndex = 0;
 
 if (mainImage && thumbnails.length > 0) {
-  var images = ["images/bd_chomchom.jpg", "images/bingsu.jpg", "images/fr_creme.jpg", "images/jp_cheese.jpg", "images/chococake.jpg","images/tiramisu.jpeg", "images/Strawberry_Shortcake_Tiramisu.jpg", "images/tres_leches_cake.jpg", "images/flan.jpg"]; // List of image URLs
+  var images = ["images/bd_chomchom.jpg", "images/bingsu.jpg", "images/fr_creme.jpg", "images/jp_cheese.jpg", "images/chococake.jpg","images/tiramisu.jpeg", "images/Strawberry_Shortcake_Tiramisu.jpg", "images/tres_leches_cake.jpg", "images/flan.jpg", "images/mochi_icecream.jpg"]; // List of image URLs
 
   // Set the first image as the main image
   mainImage.src = images[currentIndex];
