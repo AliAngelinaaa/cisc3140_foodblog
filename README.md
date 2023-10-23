@@ -1,17 +1,22 @@
-Tasks needed to complete
-- [x] have a HOME page 
-- [x] menu section 
-- [x] 4 links to other pages
-- [ ] online store
-- [x] unordered list where you use icons/images
-- [x] home page should contain ”aside”
-- [x] aside should have 3 list items such as links
-- [x] background color in the menu should change 
-- [ ] contain an event calendar
-- [x] pressing login button it will write ”Welcome, (username)”
-- [ ] list at least 2 items to sell
-- [x] you will calculate the tax which will be %8 of the item price
-- [ ] when user presses ”Add Cart” button, you should send form information to payment.html file
-- [x] Create your own error message so that when user leaves input empty and presses Submit Payment button, you see your own error
-- [ ] Submit Payment should direct to another verified.html page
-- [ ] one of the links in your menu will take to another .html page where you will have some images in it.
+# Food Blog Project for CISC 3140
+This is a food blog project created for the course CISC 3140 - Web Development. The project aims to showcase various styling, organization, and functions taught during the course..
+
+## Description
+The Food Blog project is a simple website designed using basic HTML and JavaScript. It features a collection of recipes, cooking tips, and food-related articles that are displayed in an organized and user-friendly manner. The project demonstrates fundamental web development concepts and serves as an educational exercise in creating a static website.
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+
+## Features
+Our project offers a range of features, including:
+- Interactive event calendar with dynamic date highlighting.
+- User-friendly online store with login, purchase, and payment forms.
+- Attractive image gallery with rotating images.
+
+## Usage
+To view the food blog website, open the `index.html` file in any web browser. Navigate through the different sections to explore the recipes, cooking tips, and articles.
+
+## License
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
